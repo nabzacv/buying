@@ -665,6 +665,27 @@
             vertical-align: middle;
         }
 
+        /* Styles for Visitor Counter */
+.visitor-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white; /* Ensure text color is visible on dark background */
+    font-size: 1.1em;
+    font-weight: 700;
+    order: 1; /* Order for flexbox: Counter on the left (end in RTL) */
+}
+
+.visitor-counter-icon {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 
         /* Animations */
         @keyframes fadeIn {
@@ -1071,6 +1092,10 @@ Mini Sticker Printer هي طابعة حرارية محمولة بحجم كف إ�
                     <a href="" target="_blank" aria-label="Facebook Page">
                         <svg class="facebook-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h3V2.14c-.87-.11-1.82-.14-2.72-.14-2.13 0-3.58.67-4.73 1.95-.9.98-1.42 2.37-1.52 3.69V9H7v4.5h3V22h4v-8.5z"/></svg>
                     </a>
+                    <div class="visitor-counter">
+    <svg class="visitor-counter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+    <span>الزوار الفريدون: </span><span id="uniqueVisitorsCount">0</span>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -1273,6 +1298,22 @@ Mini Sticker Printer هي طابعة حرارية محمولة بحجم كف إ�
                 }
             });
         });
+        // --- New: Unique Visitor Counter Functionality ---
+const uniqueVisitorsCountElement = document.getElementById('uniqueVisitorsCount');
+const VISITED_FLAG_KEY = 'hasVisitedPage';
+const TOTAL_VISITORS_KEY = 'totalUniqueVisitors';
+
+// Check if this user has visited before
+if (!localStorage.getItem(VISITED_FLAG_KEY)) {
+    // If not, increment total unique visitors count (locally)
+    let currentTotalVisitors = parseInt(localStorage.getItem(TOTAL_VISITORS_KEY) || '0');
+    currentTotalVisitors++;
+    localStorage.setItem(TOTAL_VISITORS_KEY, currentTotalVisitors);
+    localStorage.setItem(VISITED_FLAG_KEY, 'true'); // Set flag that this user has visited
+}
+
+// Display the current unique visitors count
+uniqueVisitorsCountElement.textContent = localStorage.getItem(TOTAL_VISITORS_KEY);
     </script>
 </body>
 </html>
