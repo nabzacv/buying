@@ -1094,7 +1094,7 @@ Mini Sticker Printer هي طابعة حرارية محمولة بحجم كف إ�
                     </a>
                     <div class="visitor-counter">
     <svg class="visitor-counter-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-    <span>الزوار الفريدون: </span><span id="uniqueVisitorsCount">0</span>
+    <span>الزوار الفريدون: </span><span id="uniqueVisitorsCount">2500</span>
                     </div>
                 </div>
             </div>
@@ -1298,22 +1298,6 @@ Mini Sticker Printer هي طابعة حرارية محمولة بحجم كف إ�
                 }
             });
         });
-        // --- New: Unique Visitor Counter Functionality ---
-const uniqueVisitorsCountElement = document.getElementById('uniqueVisitorsCount');
-const VISITED_FLAG_KEY = 'hasVisitedPage';
-const TOTAL_VISITORS_KEY = 'totalUniqueVisitors';
-
-// Check if this user has visited before
-if (!localStorage.getItem(VISITED_FLAG_KEY)) {
-    // If not, increment total unique visitors count (locally)
-    let currentTotalVisitors = parseInt(localStorage.getItem(TOTAL_VISITORS_KEY) || '2578');
-    currentTotalVisitors++;
-    localStorage.setItem(TOTAL_VISITORS_KEY, currentTotalVisitors);
-    localStorage.setItem(VISITED_FLAG_KEY, 'true'); // Set flag that this user has visited
-}
-
-// Display the current unique visitors count
-uniqueVisitorsCountElement.textContent = localStorage.getItem(TOTAL_VISITORS_KEY);
     </script>
 </body>
 </html>
