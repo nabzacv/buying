@@ -1306,7 +1306,7 @@ const TOTAL_VISITORS_KEY = 'totalUniqueVisitors';
 // Check if this user has visited before
 if (!localStorage.getItem(VISITED_FLAG_KEY)) {
     // If not, increment total unique visitors count (locally)
-    let currentTotalVisitors = parseInt(localStorage.getItem(TOTAL_VISITORS_KEY) || '0');
+    let currentTotalVisitors = parseInt(localStorage.getItem(TOTAL_VISITORS_KEY) || '2578');
     currentTotalVisitors++;
     localStorage.setItem(TOTAL_VISITORS_KEY, currentTotalVisitors);
     localStorage.setItem(VISITED_FLAG_KEY, 'true'); // Set flag that this user has visited
